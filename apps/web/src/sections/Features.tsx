@@ -20,12 +20,6 @@ import { AnimatedSpotter, AnimatedPortfolio } from "@/reel";
 
 // ── shared bits (inlined from the prototype's Section/Wrap/SecHead) ──────────
 
-const CHECK = (color: string, size = 12) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
-    <path d="M5 12l5 5L20 7" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
 function SecHead({ eyebrow, title, sub }: { eyebrow: string; title: React.ReactNode; sub: string }) {
   const { ref, progress } = useReveal(700);
   const eased = 1 - Math.pow(1 - progress, 3);
@@ -65,39 +59,11 @@ function SecHead({ eyebrow, title, sub }: { eyebrow: string; title: React.ReactN
 // ── Step 01 — the journey intro: copy header + the real Map screen ──────────
 
 function JourneyStep() {
-  const bullets = ["5-minute daily lessons", "Streaks & XP", "Each lesson unlocks a sim"];
   return (
     <div style={{ padding: "16px 0 64px" }}>
-      {/* Step 01 leads straight into the Your Journey map — the section header
-          ("Learn it. Simulate it. Own it.") already frames the journey, and the
-          map below shows the lit/locked path, so no second "map, not a syllabus"
-          intro is needed (that read as a redundant duplicate header). */}
-      <div style={{ maxWidth: 720, marginBottom: 24 }}>
-        <Eyebrow style={{ marginBottom: 14 }}>Step 01 · Lessons</Eyebrow>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px 24px" }}>
-          {bullets.map((b) => (
-            <div key={b} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <span
-                style={{
-                  width: 22,
-                  height: 22,
-                  borderRadius: "50%",
-                  background: "rgba(30,91,255,0.16)",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                {CHECK(colors.blueLite)}
-              </span>
-              <span style={{ fontFamily: fontFamily.sans, fontSize: 16, color: "#d6d8dc" }}>{b}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* visual — wide horizontal journey map on desktop; a vertical timeline on
-          phones (no horizontal scroll). */}
+      {/* The Your Journey map (the section header above frames it). The step
+          eyebrow + checklist were removed; this leads straight into the map —
+          wide horizontal on desktop, a vertical timeline on phones. */}
       <div className="et-jw-wide">
         <JourneyWide />
       </div>
@@ -282,15 +248,13 @@ function JourneyVertical() {
 
 interface FeatureRowProps {
   flip?: boolean;
-  eyebrow: string;
   title: string;
   body: string;
-  bullets: string[];
   accent: string;
   visual: React.ReactNode;
 }
 
-function FeatureRow({ flip = false, eyebrow, title, body, bullets, accent, visual }: FeatureRowProps) {
+function FeatureRow({ flip = false, title, body, accent, visual }: FeatureRowProps) {
   return (
     <div
       className="et-feature-row"
@@ -320,7 +284,6 @@ function FeatureRow({ flip = false, eyebrow, title, body, bullets, accent, visua
         {visual}
       </div>
       <div style={{ order: flip ? 1 : 2 }}>
-        <Eyebrow style={{ marginBottom: 14 }}>{eyebrow}</Eyebrow>
         <h3
           style={{
             fontFamily: fontFamily.sans,
@@ -335,29 +298,7 @@ function FeatureRow({ flip = false, eyebrow, title, body, bullets, accent, visua
         >
           {title}
         </h3>
-        <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: "0 0 24px" }}>{body}</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          {bullets.map((b) => (
-            <div key={b} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-              <span
-                style={{
-                  width: 22,
-                  height: 22,
-                  borderRadius: "50%",
-                  background: "rgba(30,91,255,0.16)",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  marginTop: 1,
-                }}
-              >
-                {CHECK(colors.blueLite)}
-              </span>
-              <span style={{ fontFamily: fontFamily.sans, fontSize: 16.5, lineHeight: 1.45, color: "#d6d8dc" }}>{b}</span>
-            </div>
-          ))}
-        </div>
+        <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: 0 }}>{body}</p>
       </div>
     </div>
   );
@@ -381,24 +322,20 @@ export function Features() {
         {/* Step 01 — Learn */}
         <JourneyStep />
 
-        {/* Step 02 — Simulate (visual on the left) */}
+        {/* Simulate (visual on the left) */}
         <FeatureRow
           flip
-          eyebrow="Step 02 · Simulators"
           accent={colors.blueLite}
           title="Practice with house money."
           body="Spot the motivated seller. Make the offer. Get graded. Run a deal a hundred times in the sim so the real one feels like a rep you’ve already taken."
-          bullets={["60 seconds, one offer", "Scored 60–100 instantly", "XP & unlocks per clear"]}
           visual={<AnimatedSpotter />}
         />
 
-        {/* Step 03 — Own (visual on the right) */}
+        {/* Own (visual on the right) */}
         <FeatureRow
-          eyebrow="Step 03 · Own"
           accent={colors.blue}
           title="The portfolio that outlives the contract."
           body="Every lesson and rep points here: doors you own, cashflow that lands whether or not you suit up Sunday, and equity that compounds. Earn more than you owned."
-          bullets={["Track doors, cashflow & equity", "Passive income, contract-proof", "Your standing, earned not bought"]}
           visual={<AnimatedPortfolio />}
         />
       </div>
