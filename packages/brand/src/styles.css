@@ -1,0 +1,145 @@
+/* styles.css — ET brand CSS variables + base resets. Imported once per app
+   root layout. Values mirror src/tokens.ts. The --font-* vars are bound by
+   each app's next/font setup on <html>. */
+
+:root {
+  --et-bg: #000000;
+  --et-bg-2: #08090c;
+  --et-bg-3: #0b0d11;
+  --et-surface: #141414;
+  --et-surface-2: #1c1c1c;
+  --et-line: #252525;
+  --et-line-2: #3a3a3a;
+  --et-line-soft: rgba(255, 255, 255, 0.08);
+  --et-line-soft-2: rgba(255, 255, 255, 0.14);
+  --et-ink: #ffffff;
+  --et-muted: #8a8a8a;
+  --et-dim: #5a5f66;
+  --et-blue: #1e5bff;
+  --et-blue-lite: #5b9bff;
+  --et-blue-deep: #16458c;
+  --et-green: #1fe98a;
+  --et-error: #ff4d4d;
+
+  /* rgb triplets for tokens used with alpha (rgba(var(--et-x-rgb), .NN)) */
+  --et-ink-rgb: 255, 255, 255;
+  --et-green-rgb: 31, 233, 138;
+  --et-surface-rgb: 20, 20, 20;
+
+  /* semantic surfaces (themed per app; the website keeps these dark values) */
+  --et-frame: #1a1a1a;
+  --et-frame-edge: #2a2a2a;
+  --et-nav: rgba(0, 0, 0, 0.85);
+  --et-screen-blue: radial-gradient(125% 80% at 50% -8%, #08101f 0%, #000 58%);
+  --et-screen-green: radial-gradient(120% 75% at 50% -10%, #0a1a10 0%, #000 60%);
+  --et-card-hero: linear-gradient(135deg, #0c1322 0%, var(--et-surface) 70%);
+  --et-tile-grey-top: linear-gradient(180deg, #20242c, #15181e);
+  --et-tile-grey-lip: #0c0e12;
+  --et-path-locked: #1d2330;
+  --et-screen-map: radial-gradient(125% 85% at 70% -8%, #07090c 0%, #000 55%);
+
+  /* ── connected-app "Home v2" surfaces (portfolio-led home + cards) ── */
+  --et-card-pegasus: radial-gradient(120% 130% at 0% 0%, #16233d 0%, #11161f 72%);
+  --et-card-pegasus-border: rgba(30, 91, 255, 0.3);
+  --et-card-deal-bg: #0b0d12;
+  --et-card-deal-border: rgba(30, 91, 255, 0.55);
+  /* "From the league" notification cards read light on dark (X-style); they
+     flip to a clean themed card in light mode. */
+  --et-quiet-bg: #ececee;
+  --et-quiet-border: #d6d6da;
+  --et-quiet-ink: #111111;
+  --et-quiet-sub: #9a9aa1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--et-bg);
+  color: var(--et-ink);
+  font-family: var(--font-inter-tight), -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hide scrollbars on internal scroll regions (phone screens, feeds). */
+.et-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.et-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Entrance animation classes used by ported screens (the prototype drove these
+   via a global WAAPI observer; here they're plain CSS keyframes). */
+@keyframes et2-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.et2-fade {
+  animation: et2-fade 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes et2-screenfade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.et2-screenfade {
+  animation: et2-screenfade 0.28s ease both;
+}
+
+@keyframes et2-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(8deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.et2-pop {
+  animation: et2-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes et2-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.et2-blink {
+  animation: et2-blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

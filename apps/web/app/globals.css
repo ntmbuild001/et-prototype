@@ -1,0 +1,25 @@
+@import "@et/brand/styles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── mobile responsive pass ───────────────────────────────────────── */
+/* Safety net: never let a section force the whole page to scroll sideways. */
+html,
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  /* The desktop section bands (110–120px) feel jammed on a phone — tighten. */
+  main > section {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+  /* The hero sits beneath the fixed nav — keep top clearance. */
+  main > section#waitlist {
+    padding-top: 92px !important;
+    padding-bottom: 48px !important;
+  }
+}

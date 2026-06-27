@@ -1,0 +1,61 @@
+@import "@et/brand/styles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light mode (app only) ──────────────────────────────────────────────
+   Applied when <html data-theme="light">. The no-FOUC script in the app layout
+   resolves the manual override (localStorage "et-theme") OR the device's
+   prefers-color-scheme into data-theme — so light follows the system by default,
+   and a manual toggle wins. The marketing website never sets data-theme, so its
+   shared components stay dark. Dark = the default :root from @et/brand. */
+:root[data-theme="light"] {
+  --et-bg: #f4f6f8;
+  --et-bg-2: #eef0f3;
+  --et-bg-3: #e8ebef;
+  --et-surface: #ffffff;
+  --et-surface-2: #eef0f3;
+  --et-line: #e4e6ea;
+  --et-line-2: #d6d9de;
+  --et-line-soft: rgba(0, 0, 0, 0.06);
+  --et-line-soft-2: rgba(0, 0, 0, 0.1);
+  --et-ink: #14140f;
+  --et-ink-rgb: 20, 20, 15;
+  --et-muted: #6b6e73;
+  --et-dim: #9aa0a6;
+  --et-green: #0fa862;
+  --et-green-rgb: 15, 168, 98;
+  --et-surface-rgb: 255, 255, 255;
+
+  --et-frame: #e6e8ec;
+  --et-frame-edge: #d4d7dc;
+  --et-nav: rgba(244, 246, 248, 0.86);
+  --et-screen-blue: radial-gradient(125% 80% at 50% -8%, #e9f1ff 0%, #f4f6f8 60%);
+  --et-screen-green: radial-gradient(120% 75% at 50% -10%, #e7f6ee 0%, #f4f6f8 62%);
+  --et-card-hero: linear-gradient(135deg, #e9f0ff 0%, var(--et-surface) 72%);
+  --et-tile-grey-top: linear-gradient(180deg, #eef1f4, #e3e7ec);
+  --et-tile-grey-lip: #cfd3d9;
+  --et-path-locked: #d6d9de;
+  --et-screen-map: radial-gradient(125% 85% at 70% -8%, #eef1f6 0%, #f4f6f8 55%);
+
+  /* connected-app "Home v2" surfaces — light variants */
+  --et-card-pegasus: radial-gradient(120% 130% at 0% 0%, #e8f0ff 0%, #ffffff 72%);
+  --et-card-pegasus-border: rgba(30, 91, 255, 0.22);
+  --et-card-deal-bg: #ffffff;
+  --et-card-deal-border: rgba(30, 91, 255, 0.4);
+  --et-quiet-bg: #ffffff;
+  --et-quiet-border: #e4e6ea;
+  --et-quiet-ink: #14140f;
+  --et-quiet-sub: #9aa0a6;
+}
+
+/* The Eddy moon goes "light": drop the blue glow for a soft neutral shadow
+   (chrome/liquid sphere) and calm the blue corona. The water keeps floating. */
+:root[data-theme="light"] .pegMoonSvg {
+  animation: none !important;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18)) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.12)) !important;
+}
+:root[data-theme="light"] .pegMoonCorona {
+  opacity: 0.22 !important;
+}

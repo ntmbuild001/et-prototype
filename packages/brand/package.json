@@ -1,0 +1,15 @@
+{
+  "name": "@et/brand",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/styles.css",
+    "./fonts": "./src/fonts.ts",
+    "./tailwind-preset": "./tailwind-preset.cjs"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}

@@ -1,14 +1,20 @@
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
+.pnpm-store
 
-# next.js
-/.next/
+# next.js (monorepo — match anywhere)
+.next
 /out/
+out
+
+# turborepo
+.turbo
 
 # production
 /build
+dist
 
 # misc
 .DS_Store
@@ -20,6 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
