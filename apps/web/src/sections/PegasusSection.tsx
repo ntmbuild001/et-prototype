@@ -100,8 +100,7 @@ export function PegasusSection() {
             <span style={{ fontFamily: fontFamily.serif, fontStyle: "italic", fontWeight: 400, color: colors.blue }}>24/7.</span>
           </h2>
           <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: "0 auto", maxWidth: 540 }}>
-            Ask about any property, number, or lesson and get answers grounded in real math: the 70% rule, DSCR, cash-on-cash,
-            not vibes.
+            Ask about any property, number, or lesson and get answers grounded in real math: the 70% rule, DSCR, cash-on-cash.
           </p>
         </div>
 

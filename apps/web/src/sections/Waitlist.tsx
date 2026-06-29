@@ -157,7 +157,7 @@ export function Waitlist({ size = "lg" }: { size?: "md" | "lg" }) {
           ))}
         </span>
         <span>
-          <span style={{ color: colors.ink, fontWeight: 700 }}>2,400+ athletes</span> already in line.
+          <span style={{ color: colors.ink, fontWeight: 700 }}>250+ athletes</span> already in line.
         </span>
       </div>
 

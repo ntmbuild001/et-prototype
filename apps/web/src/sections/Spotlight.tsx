@@ -44,7 +44,7 @@ export function Spotlight() {
           padding: "0 28px",
           position: "relative",
           display: "grid",
-          gridTemplateColumns: "minmax(0,1.05fr) minmax(0,0.9fr)",
+          gridTemplateColumns: "minmax(0,0.9fr) minmax(0,1.05fr)",
           gap: 56,
           alignItems: "center",
           opacity: 0.05 + eased * 0.95,
@@ -52,8 +52,8 @@ export function Spotlight() {
           willChange: "opacity, transform",
         }}
       >
-        {/* left — dynamic text */}
-        <div>
+        {/* dynamic text (right on desktop) */}
+        <div className="et-spot-copy">
           <div
             style={{
               fontFamily: fontFamily.mono,
@@ -83,7 +83,7 @@ export function Spotlight() {
             <span style={{ fontFamily: fontFamily.serif, fontStyle: "italic", fontWeight: 400, color: colors.blue }}>words.</span>
           </h2>
           <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: "0 0 28px", maxWidth: 460 }}>
-            No theory, no gurus. Hear how pros are turning game checks into doors, cashflow, and equity that outlasts the career,
+            Hear how pros are turning game checks into doors, cashflow, and equity that outlasts the career,
             straight from the members.
           </p>
 
@@ -117,7 +117,7 @@ export function Spotlight() {
           </div>
         </div>
 
-        {/* right — talking-head video panel */}
+        {/* talking-head video panel (left on desktop) */}
         <VideoPanel />
       </div>
 
@@ -125,9 +125,13 @@ export function Spotlight() {
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes etSpotQuoteIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
         .et-spot-quote { animation: etSpotQuoteIn .5s cubic-bezier(.22,1,.36,1) both; }
+        /* desktop: video on the left, copy on the right */
+        .et-spot-video { order: 1; }
+        .et-spot-copy { order: 2; }
         @media (max-width: 860px) {
           .et-spot-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
-          .et-spot-video { max-width: 380px; margin: 0 auto; }
+          .et-spot-copy { order: 0; }
+          .et-spot-video { order: 1; max-width: 380px; margin: 0 auto; }
         }
         @media (prefers-reduced-motion: reduce) { .et-spot-quote { animation: none; } }
       ` }} />

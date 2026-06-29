@@ -253,40 +253,23 @@ interface FeatureRowProps {
   visual: React.ReactNode;
 }
 
-// Stacked feature block: centered headline + body on top, the iPhone mockup
-// centered directly underneath.
+// Split feature block: the iPhone mockup on the LEFT, copy on the right.
+// Stacks to one column (copy then phone) on small screens.
 function FeatureRow({ title, body, accent, visual }: FeatureRowProps) {
   return (
     <div
       className="et-feature-row"
       style={{
-        display: "flex",
-        flexDirection: "column",
+        display: "grid",
+        gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)",
+        gap: 56,
         alignItems: "center",
-        gap: 40,
         padding: "56px 0",
       }}
     >
-      <div style={{ maxWidth: 680, textAlign: "center" }}>
-        <h3
-          style={{
-            fontFamily: fontFamily.sans,
-            fontSize: "clamp(28px, 3vw, 40px)",
-            fontWeight: 800,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.06,
-            color: colors.ink,
-            margin: "0 0 16px",
-            textWrap: "balance",
-          }}
-        >
-          {title}
-        </h3>
-        <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: "0 auto", maxWidth: 560 }}>{body}</p>
-      </div>
       <div
         className="et-feature-visual"
-        style={{ position: "relative", display: "flex", justifyContent: "center", width: "100%" }}
+        style={{ position: "relative", display: "flex", justifyContent: "center" }}
       >
         <div
           aria-hidden
@@ -303,6 +286,23 @@ function FeatureRow({ title, body, accent, visual }: FeatureRowProps) {
           }}
         />
         {visual}
+      </div>
+      <div className="et-feature-copy">
+        <h3
+          style={{
+            fontFamily: fontFamily.sans,
+            fontSize: "clamp(28px, 3vw, 40px)",
+            fontWeight: 800,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.06,
+            color: colors.ink,
+            margin: "0 0 16px",
+            textWrap: "balance",
+          }}
+        >
+          {title}
+        </h3>
+        <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: 0, maxWidth: 480 }}>{body}</p>
       </div>
     </div>
   );
@@ -346,6 +346,11 @@ export function Features() {
       {/* responsive: the wide journey map swaps to a vertical timeline on phones */}
       <style dangerouslySetInnerHTML={{ __html: `
         .et-jw-vert { display: none; }
+        @media (max-width: 860px) {
+          .et-feature-row { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .et-feature-row .et-feature-visual { order: 2; }
+          .et-feature-row .et-feature-copy { order: 1; }
+        }
         @media (max-width: 720px) {
           /* swap the wide horizontal map for a clean vertical journey on phones —
              no horizontal scroll */
