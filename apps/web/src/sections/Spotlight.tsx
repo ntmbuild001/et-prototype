@@ -34,12 +34,12 @@ export function Spotlight() {
   }, []);
 
   return (
-    <section id="spotlight" style={{ position: "relative", padding: "110px 0", overflow: "hidden" }}>
+    <section id="spotlight" style={{ position: "relative", padding: "78px 0", overflow: "hidden" }}>
       <div
         ref={ref}
         className="et-spot-grid"
         style={{
-          maxWidth: 1100,
+          maxWidth: 1200,
           margin: "0 auto",
           padding: "0 28px",
           position: "relative",

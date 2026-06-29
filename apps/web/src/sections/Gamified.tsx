@@ -74,8 +74,8 @@ const CHIPS: ReadonlyArray<{ icon: ChipIcon; label: string }> = [
 
 export function Gamified() {
   return (
-    <section id="game" style={{ position: "relative", padding: "110px 0" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 28px", position: "relative" }}>
+    <section id="game" style={{ position: "relative", padding: "78px 0" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 28px", position: "relative" }}>
         <div
           className="et-game-grid"
           style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 56, alignItems: "center" }}

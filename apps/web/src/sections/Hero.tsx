@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section
       id="waitlist"
-      style={{ position: "relative", overflow: "hidden", paddingTop: 112, paddingBottom: 70 }}
+      style={{ position: "relative", overflow: "hidden", paddingTop: 96, paddingBottom: 56 }}
     >
       <span id="top" style={{ position: "absolute", top: 0 }} aria-hidden />
       <div

@@ -20,7 +20,7 @@ export function FinalCTA() {
   const eased = 1 - Math.pow(1 - progress, 3);
 
   return (
-    <section style={{ position: "relative", padding: "120px 0", overflow: "hidden" }}>
+    <section style={{ position: "relative", padding: "90px 0", overflow: "hidden" }}>
       <div
         ref={ref}
         style={{

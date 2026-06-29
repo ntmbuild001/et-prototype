@@ -79,8 +79,8 @@ export function PegasusSection() {
   }, []);
 
   return (
-    <section id="pegasus" style={{ position: "relative", padding: "120px 0", overflow: "hidden" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 28px", position: "relative" }}>
+    <section id="pegasus" style={{ position: "relative", padding: "90px 0", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 28px", position: "relative" }}>
         {/* header — centered */}
         <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center", marginBottom: 8 }}>
           <Eyebrow style={{ marginBottom: 16, display: "block" }}>Pegasus · AI coach</Eyebrow>

@@ -24,7 +24,7 @@ export function Footer() {
       <div
         className="et-footer-grid"
         style={{
-          maxWidth: 1100,
+          maxWidth: 1200,
           margin: "0 auto",
           padding: "0 28px",
           display: "grid",
@@ -58,7 +58,7 @@ export function Footer() {
       <div
         className="et-footer-base"
         style={{
-          maxWidth: 1100,
+          maxWidth: 1200,
           margin: "48px auto 0",
           padding: "24px 28px 0",
           borderTop: `1px solid ${colors.line}`,

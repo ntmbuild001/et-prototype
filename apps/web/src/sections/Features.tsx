@@ -247,24 +247,29 @@ function JourneyVertical() {
 // ── alternating feature row: copy on one side, reel screen on the other ─────
 
 interface FeatureRowProps {
+  /** Put the phone on the RIGHT (copy on the left). Default: phone left. */
+  flip?: boolean;
   title: string;
   body: string;
   accent: string;
   visual: React.ReactNode;
 }
 
-// Split feature block: the iPhone mockup on the LEFT, copy on the right.
-// Stacks to one column (copy then phone) on small screens.
-function FeatureRow({ title, body, accent, visual }: FeatureRowProps) {
+// Split feature block. The phone + copy are content-sized columns centered as a
+// cluster (no fluid half-columns, so the phone sits right next to the copy with
+// no dead gap). `flip` puts the phone on the right. Stacks to one column
+// (copy then phone) on small screens.
+function FeatureRow({ flip = false, title, body, accent, visual }: FeatureRowProps) {
   return (
     <div
-      className="et-feature-row"
+      className={"et-feature-row" + (flip ? " et-feature-row--flip" : "")}
       style={{
         display: "grid",
-        gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)",
-        gap: 56,
+        gridTemplateColumns: flip ? "minmax(0,460px) 300px" : "300px minmax(0,460px)",
+        gap: 48,
         alignItems: "center",
-        padding: "56px 0",
+        justifyContent: "center",
+        padding: "40px 0",
       }}
     >
       <div
@@ -302,7 +307,7 @@ function FeatureRow({ title, body, accent, visual }: FeatureRowProps) {
         >
           {title}
         </h3>
-        <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: 0, maxWidth: 480 }}>{body}</p>
+        <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: 0, maxWidth: 460 }}>{body}</p>
       </div>
     </div>
   );
@@ -310,8 +315,8 @@ function FeatureRow({ title, body, accent, visual }: FeatureRowProps) {
 
 export function Features() {
   return (
-    <section id="path" style={{ position: "relative", padding: "90px 0", overflow: "hidden" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 28px", position: "relative" }}>
+    <section id="path" style={{ position: "relative", padding: "68px 0", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 28px", position: "relative" }}>
         <SecHead
           eyebrow="The path"
           title={
@@ -334,8 +339,9 @@ export function Features() {
           visual={<AnimatedSpotter />}
         />
 
-        {/* Own — phone mockup underneath the copy */}
+        {/* Own — phone on the right (alternates with the row above) */}
         <FeatureRow
+          flip
           accent={colors.blue}
           title="The portfolio that outlives the contract."
           body="Every lesson and deal points here: doors you own, cashflow that lands whether or not you suit up Sunday, and equity that compounds. Own more than you earned."
@@ -346,10 +352,13 @@ export function Features() {
       {/* responsive: the wide journey map swaps to a vertical timeline on phones */}
       <style dangerouslySetInnerHTML={{ __html: `
         .et-jw-vert { display: none; }
+        /* flipped row: copy on the left, phone on the right (desktop) */
+        .et-feature-row--flip .et-feature-visual { order: 2; }
+        .et-feature-row--flip .et-feature-copy { order: 1; }
         @media (max-width: 860px) {
-          .et-feature-row { grid-template-columns: 1fr !important; gap: 32px !important; }
-          .et-feature-row .et-feature-visual { order: 2; }
-          .et-feature-row .et-feature-copy { order: 1; }
+          .et-feature-row { grid-template-columns: 1fr !important; gap: 32px !important; justify-content: stretch !important; }
+          .et-feature-row .et-feature-visual { order: 2 !important; }
+          .et-feature-row .et-feature-copy { order: 1 !important; }
         }
         @media (max-width: 720px) {
           /* swap the wide horizontal map for a clean vertical journey on phones —

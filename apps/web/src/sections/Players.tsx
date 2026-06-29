@@ -45,8 +45,8 @@ function initials(name: string): string {
 
 export function Players() {
   return (
-    <section id="players" style={{ position: "relative", padding: "110px 0" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 28px", position: "relative" }}>
+    <section id="players" style={{ position: "relative", padding: "78px 0" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 28px", position: "relative" }}>
         <SecHead
           eyebrow="The members"
           title="Real players. Real portfolios."

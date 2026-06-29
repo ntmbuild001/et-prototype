@@ -45,11 +45,11 @@ const VALUE_POINTS: ReadonlyArray<{ icon: IconName; t: string }> = [
 
 export function ExperienceBand() {
   return (
-    <section id="experience" style={{ position: "relative", padding: "110px 0", overflow: "hidden" }}>
+    <section id="experience" style={{ position: "relative", padding: "78px 0", overflow: "hidden" }}>
       <div
         className="et-exp-grid"
         style={{
-          maxWidth: 1100,
+          maxWidth: 1200,
           margin: "0 auto",
           padding: "0 28px",
           position: "relative",
