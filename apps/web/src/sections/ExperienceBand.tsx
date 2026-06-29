@@ -77,7 +77,7 @@ export function ExperienceBand() {
           >
             More than an app.
             <br />
-            <span style={{ fontFamily: fontFamily.serif, fontStyle: "italic", fontWeight: 400, color: colors.blue }}>A locker room for owners.</span>
+            <span style={{ fontFamily: fontFamily.serif, fontStyle: "italic", fontWeight: 400, color: colors.blue }}>A private room for owners.</span>
           </h2>
           <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: 0, maxWidth: 460 }}>
             We&rsquo;re not selling a course. We&rsquo;re building the room where athletes become owners, and your standing in it is something you earn.

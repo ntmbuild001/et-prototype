@@ -3,14 +3,20 @@ import type { Metadata } from "next";
 import { fontVars } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "Elite Transition — Earn more than you owned.",
+  title: "Elite Transition: Own more than you earned.",
   description:
-    "Real-estate investing for pro athletes. Turn game checks into owned assets. Learn, rep deals, own the block.",
+    "Real-estate investing for pro athletes. Turn game checks into owned assets. Learn, close deals, own property.",
   openGraph: {
-    title: "Elite Transition — Earn more than you owned.",
+    title: "Elite Transition: Own more than you earned.",
     description:
       "Real-estate investing for pro athletes. Turn game checks into owned assets.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elite Transition: Own more than you earned.",
+    description:
+      "Real-estate investing for pro athletes. Turn game checks into owned assets.",
   },
 };
 

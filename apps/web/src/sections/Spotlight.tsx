@@ -20,7 +20,7 @@ const VIDEO_SRC = "";
 const QUOTES: ReadonlyArray<string> = [
   "“I owned three doors before I owned a watch.”",
   "“Game checks are temporary. Doors aren’t.”",
-  "“Pegasus ran the numbers — I made the call.”",
+  "“Pegasus ran the numbers. I made the call.”",
 ];
 
 export function Spotlight() {
@@ -83,8 +83,8 @@ export function Spotlight() {
             <span style={{ fontFamily: fontFamily.serif, fontStyle: "italic", fontWeight: 400, color: colors.blue }}>words.</span>
           </h2>
           <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: "0 0 28px", maxWidth: 460 }}>
-            No theory, no gurus. Hear how pros are turning game checks into doors, cashflow, and equity that outlasts the career —
-            straight from the locker room.
+            No theory, no gurus. Hear how pros are turning game checks into doors, cashflow, and equity that outlasts the career,
+            straight from the members.
           </p>
 
           {/* rotating quote — the "dynamic" text */}

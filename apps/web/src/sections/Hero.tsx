@@ -63,7 +63,7 @@ export function Hero() {
             }}
           >
             A community of pros turning game checks into real estate, together. Track teammates&rsquo; live deals, run your own
-            reps, and build a portfolio that outlasts the career. Earn more than you owned.
+            deals, and build a portfolio that outlasts the career. Own more than you earned.
           </p>
 
           <Waitlist size="lg" />

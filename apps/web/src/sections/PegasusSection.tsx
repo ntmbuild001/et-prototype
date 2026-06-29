@@ -16,10 +16,10 @@ import { PegasusMoon } from "@et/screens";
 
 // The coaching exchange (reused from the prototype's PEG_LANDING).
 const DIALOGUE = {
-  intro: "I'm Pegasus — your deal coach. Ask me about any property, number, or lesson.",
+  intro: "I'm Pegasus, your deal coach. Ask me about any property, number, or lesson.",
   user: "Is a $170k flip on a $300k ARV worth it?",
   answer:
-    "Run the 70% rule: 0.70 × $300k = $210k, minus rehab. Max buy ≈ $170k — that's the ceiling, not a green light yet.",
+    "Run the 70% rule: 0.70 × $300k = $210k, minus rehab. Max buy ≈ $170k. That's the ceiling, not a green light yet.",
 };
 
 const coachBubble: React.CSSProperties = {
@@ -100,7 +100,7 @@ export function PegasusSection() {
             <span style={{ fontFamily: fontFamily.serif, fontStyle: "italic", fontWeight: 400, color: colors.blue }}>24/7.</span>
           </h2>
           <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: "0 auto", maxWidth: 540 }}>
-            Ask about any property, number, or lesson and get answers grounded in real math — the 70% rule, DSCR, cash-on-cash,
+            Ask about any property, number, or lesson and get answers grounded in real math: the 70% rule, DSCR, cash-on-cash,
             not vibes.
           </p>
         </div>

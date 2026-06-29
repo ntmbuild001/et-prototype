@@ -69,7 +69,7 @@ export function Footer() {
         }}
       >
         <span style={{ fontFamily: fontFamily.sans, fontSize: 13.5, color: colors.dim }}>© 2026 Elite Transition. All rights reserved.</span>
-        <span style={{ fontFamily: fontFamily.mono, fontSize: 12, letterSpacing: "0.1em", color: colors.dim }}>EARN MORE THAN YOU OWNED.</span>
+        <span style={{ fontFamily: fontFamily.mono, fontSize: 12, letterSpacing: "0.1em", color: colors.dim }}>OWN MORE THAN YOU EARNED.</span>
       </div>
 
       {/* hover (CSS-only so the footer stays a server component) + responsive */}

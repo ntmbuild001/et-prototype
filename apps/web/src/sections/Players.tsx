@@ -48,7 +48,7 @@ export function Players() {
     <section id="players" style={{ position: "relative", padding: "110px 0" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 28px", position: "relative" }}>
         <SecHead
-          eyebrow="The locker room"
+          eyebrow="The members"
           title="Real players. Real portfolios."
           sub="From the league to the ledger: see the athletes already turning game checks into owned assets. Every deal live, every move tracked."
         />
@@ -248,7 +248,7 @@ function JoinCard() {
         </span>
       </div>
       <div style={{ fontFamily: fontFamily.mono, fontSize: 10, fontWeight: 700, letterSpacing: "0.16em", color: colors.blueLite, marginBottom: 16 }}>OPEN ROSTER SPOT</div>
-      <div style={{ fontFamily: fontFamily.sans, fontSize: 23, fontWeight: 800, letterSpacing: "-0.025em", color: colors.ink, lineHeight: 1.08, maxWidth: 260 }}>This locker is empty.</div>
+      <div style={{ fontFamily: fontFamily.sans, fontSize: 23, fontWeight: 800, letterSpacing: "-0.025em", color: colors.ink, lineHeight: 1.08, maxWidth: 260 }}>This spot is empty.</div>
       <p style={{ fontFamily: fontFamily.sans, fontSize: 15, lineHeight: 1.5, color: colors.muted, margin: "16px 0 32px", maxWidth: 260 }}>
         Claim your spot, track your first deal, and put your name on the board.
       </p>

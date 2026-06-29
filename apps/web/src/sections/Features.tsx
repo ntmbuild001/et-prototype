@@ -247,43 +247,27 @@ function JourneyVertical() {
 // ── alternating feature row: copy on one side, reel screen on the other ─────
 
 interface FeatureRowProps {
-  flip?: boolean;
   title: string;
   body: string;
   accent: string;
   visual: React.ReactNode;
 }
 
-function FeatureRow({ flip = false, title, body, accent, visual }: FeatureRowProps) {
+// Stacked feature block: centered headline + body on top, the iPhone mockup
+// centered directly underneath.
+function FeatureRow({ title, body, accent, visual }: FeatureRowProps) {
   return (
     <div
       className="et-feature-row"
       style={{
-        display: "grid",
-        gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)",
-        gap: 56,
+        display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        padding: "64px 0",
+        gap: 40,
+        padding: "56px 0",
       }}
     >
-      <div
-        className="et-feature-visual"
-        style={{ order: flip ? 2 : 1, display: "flex", justifyContent: "center", position: "relative" }}
-      >
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            width: 360,
-            height: 360,
-            borderRadius: "50%",
-            background: `radial-gradient(50% 50% at 50% 50%, ${accent}22, transparent 70%)`,
-            pointerEvents: "none",
-          }}
-        />
-        {visual}
-      </div>
-      <div style={{ order: flip ? 1 : 2 }}>
+      <div style={{ maxWidth: 680, textAlign: "center" }}>
         <h3
           style={{
             fontFamily: fontFamily.sans,
@@ -298,7 +282,27 @@ function FeatureRow({ flip = false, title, body, accent, visual }: FeatureRowPro
         >
           {title}
         </h3>
-        <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: 0 }}>{body}</p>
+        <p style={{ fontFamily: fontFamily.sans, fontSize: 18, lineHeight: 1.55, color: colors.muted, margin: "0 auto", maxWidth: 560 }}>{body}</p>
+      </div>
+      <div
+        className="et-feature-visual"
+        style={{ position: "relative", display: "flex", justifyContent: "center", width: "100%" }}
+      >
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%,-50%)",
+            width: 360,
+            height: 360,
+            borderRadius: "50%",
+            background: `radial-gradient(50% 50% at 50% 50%, ${accent}22, transparent 70%)`,
+            pointerEvents: "none",
+          }}
+        />
+        {visual}
       </div>
     </div>
   );
@@ -316,37 +320,31 @@ export function Features() {
               <span style={{ fontFamily: fontFamily.serif, fontStyle: "italic", fontWeight: 400, color: colors.blue }}>Own it.</span>
             </>
           }
-          sub="A guided journey from your first lesson to your first deal. Every step tracked, unlocked, and graded so you actually finish."
+          sub="A guided path from your first lesson to your first deal. Every step tracked, unlocked, and graded so you actually finish."
         />
 
         {/* Step 01 — Learn */}
         <JourneyStep />
 
-        {/* Simulate (visual on the left) */}
+        {/* Simulate — phone mockup underneath the copy */}
         <FeatureRow
-          flip
           accent={colors.blueLite}
           title="Practice with house money."
-          body="Spot the motivated seller. Make the offer. Get graded. Run a deal a hundred times in the sim so the real one feels like a rep you’ve already taken."
+          body="Spot the motivated seller. Make the offer. Get graded. Run a deal a hundred times in the sim so the real one feels like a deal you’ve already closed."
           visual={<AnimatedSpotter />}
         />
 
-        {/* Own (visual on the right) */}
+        {/* Own — phone mockup underneath the copy */}
         <FeatureRow
           accent={colors.blue}
           title="The portfolio that outlives the contract."
-          body="Every lesson and rep points here: doors you own, cashflow that lands whether or not you suit up Sunday, and equity that compounds. Earn more than you owned."
+          body="Every lesson and deal points here: doors you own, cashflow that lands whether or not you suit up Sunday, and equity that compounds. Own more than you earned."
           visual={<AnimatedPortfolio />}
         />
       </div>
 
-      {/* responsive: stack copy/visual into a single column on small viewports */}
+      {/* responsive: the wide journey map swaps to a vertical timeline on phones */}
       <style dangerouslySetInnerHTML={{ __html: `
-        @media (max-width: 860px) {
-          .et-feature-row { grid-template-columns: 1fr !important; }
-          .et-feature-row .et-feature-visual { order: 1 !important; }
-          .et-feature-row > div:last-child { order: 2 !important; }
-        }
         .et-jw-vert { display: none; }
         @media (max-width: 720px) {
           /* swap the wide horizontal map for a clean vertical journey on phones —
